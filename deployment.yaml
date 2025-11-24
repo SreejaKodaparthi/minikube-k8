@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minikube-demo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minikube-demo
+  template:
+    metadata:
+      labels:
+        app: minikube-demo
+    spec:
+      containers:
+      - name: minikube-demo-container
+        image: <your-dockerhub-username>/minikube-demo:v1
+        ports:
+        - containerPort: 5000
